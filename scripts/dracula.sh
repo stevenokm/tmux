@@ -182,7 +182,7 @@ main()
   else
     tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon}"
 
-    tmux set-option -g status-right "#[fg=${dark_gray},bg=${cyan}]#(tmux-mem-cpu-load) #[fg=${dark_gray},bg=${orange}]#(uptime | cut -f 4-5 -d \" \" | cut -f 1 -d \",\")"
+    tmux set-option -g status-right "#[fg=${dark_gray},bg=${cyan}]#($current_dir/../../tmux-mem-cpu-load/tmux-mem-cpu-load --interval $show_refresh) #[fg=${dark_gray},bg=${orange}]#(uptime | cut -f 4-5 -d \" \" | cut -f 1 -d \",\")"
 
       if $show_battery; then # battery
         tmux set-option -ga  status-right "#[fg=${dark_gray},bg=${pink}] #($current_dir/battery.sh) "
